@@ -1,0 +1,28 @@
+TuringTable tt = new TuringTable();
+tt.addRow(new TuringTableRow(0,0,0,0,TuringAction.R));
+tt.addRow(new TuringTableRow(0,1,1,1,TuringAction.R));
+tt.addRow(new TuringTableRow(1,0,0,1,TuringAction.Stop));
+tt.addRow(new TuringTableRow(1,1,1,1,TuringAction.R));
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(1);
+new TuringChainNode(1);
+new TuringChainNode(1);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+System.out.println("Bandzustand vorher: ");
+for (int i=0; i<12; ++i) {
+	System.out.print(TuringChainNode.getNode(i).getCellContent());
+}
+System.out.println();
+TuringChainNode.getNode(0).activateNode(0,tt);
+System.out.println("Bandzustand nachher: ");
+for (int i=0; i<12; ++i) {
+	System.out.print(TuringChainNode.getNode(i).getCellContent());
+}
+System.out.println();
