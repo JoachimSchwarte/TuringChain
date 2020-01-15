@@ -10,7 +10,7 @@ public class TuringMachine {
 		super();
 	}
 	
-	public static TuringMachine getInstanceTuringMachine() {
+	public static TuringMachine getInstance() {
 		if (instance == null) {
 			instance = new TuringMachine();
 		}

@@ -5,7 +5,6 @@ import java.util.LinkedList;
 public class TuringChainNode {
 	
     private static LinkedList<TuringChainNode> nodeList = new LinkedList<TuringChainNode>();
-	
 	private int cellContent;
 
 	public TuringChainNode(int cellContent) {
@@ -24,8 +23,7 @@ public class TuringChainNode {
 			if ((tt.getRow(j).getPreInnerStatus() == innerStatus) &&
 					(tt.getRow(j).getPreCellContent() == cellContent)) {
 				cellContent = tt.getRow(j).getPostCellContent();
-				TuringMachine.getInstanceTuringMachine().setInnerStatus(tt.getRow(j).getPostInnerStatus());
-				innerStatus = tt.getRow(j).getPostInnerStatus();
+				TuringMachine.getInstance().setInnerStatus(tt.getRow(j).getPostInnerStatus());
 				return tt.getRow(j).getNextAction();
 			}			
 		}

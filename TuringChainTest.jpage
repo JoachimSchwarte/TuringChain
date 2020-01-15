@@ -20,7 +20,7 @@ for (int i=0; i<12; ++i) {
 	System.out.print(TuringChainNode.getNode(i).getCellContent());
 }
 System.out.println();
-TuringMachine.getInstanceTuringMachine().startMachine(tt);
+TuringMachine.getInstance().startMachine(tt);
 System.out.println("Bandzustand nachher: ");
 for (int i=0; i<12; ++i) {
 	System.out.print(TuringChainNode.getNode(i).getCellContent());
