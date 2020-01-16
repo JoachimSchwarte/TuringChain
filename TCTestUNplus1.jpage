@@ -1,4 +1,4 @@
-TuringTable tt = new TuringTable();
+TuringTable tt = TuringTable.getInstance();
 tt.addRow(new TuringTableRow(0,0,0,0,TuringAction.R));
 tt.addRow(new TuringTableRow(0,1,1,1,TuringAction.R));
 tt.addRow(new TuringTableRow(1,0,0,1,TuringAction.Stop));
@@ -20,7 +20,7 @@ for (int i=0; i<12; ++i) {
 	System.out.print(TuringChainNode.getNode(i).getCellContent());
 }
 System.out.println();
-TuringMachine.getInstance().startMachine(tt);
+TuringMachine.getInstance().startMachine();
 System.out.println("Bandzustand nachher: ");
 for (int i=0; i<12; ++i) {
 	System.out.print(TuringChainNode.getNode(i).getCellContent());

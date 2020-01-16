@@ -1,0 +1,38 @@
+TuringTable tt = TuringTable.getInstance();
+tt.addRow(new TuringTableRow(0,0,0,0,TuringAction.R));
+tt.addRow(new TuringTableRow(0,1,1,0,TuringAction.R));
+tt.addRow(new TuringTableRow(1,0,2,1,TuringAction.L));
+tt.addRow(new TuringTableRow(1,1,1,1,TuringAction.R));
+tt.addRow(new TuringTableRow(2,0,3,0,TuringAction.R));
+tt.addRow(new TuringTableRow(2,1,4,0,TuringAction.R));
+tt.addRow(new TuringTableRow(3,0,1,1,TuringAction.Stop));
+tt.addRow(new TuringTableRow(3,1,3,1,TuringAction.R));
+tt.addRow(new TuringTableRow(4,0,5,1,TuringAction.L));
+tt.addRow(new TuringTableRow(4,1,4,1,TuringAction.R));
+tt.addRow(new TuringTableRow(5,0,2,1,TuringAction.L));
+tt.addRow(new TuringTableRow(5,1,5,1,TuringAction.L));
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(1);
+new TuringChainNode(1);
+new TuringChainNode(1);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+new TuringChainNode(0);
+System.out.println("Bandzustand vorher: ");
+for (int i=0; i<14; ++i) {
+	System.out.print(TuringChainNode.getNode(i).getCellContent());
+}
+System.out.println();
+TuringMachine.getInstance().startMachine();
+System.out.println("Bandzustand nachher: ");
+for (int i=0; i<14; ++i) {
+	System.out.print(TuringChainNode.getNode(i).getCellContent());
+}
+System.out.println();

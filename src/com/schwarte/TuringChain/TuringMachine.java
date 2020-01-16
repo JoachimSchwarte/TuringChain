@@ -17,10 +17,10 @@ public class TuringMachine {
 		return instance; 
 	}
 	
-	public void startMachine(TuringTable tt) {
+	public void startMachine() {
 		TuringAction ta = TuringAction.R;
 		while (ta.equals(TuringAction.Stop)==false) {
-			ta = TuringChainNode.getNode(position).activateNode(position, innerStatus, tt);
+			ta = TuringChainNode.activateNode(position);
 			if (ta.equals(TuringAction.R) == true) position++; 
 			if (ta.equals(TuringAction.L) == true) position--; 
 		}
@@ -28,5 +28,9 @@ public class TuringMachine {
 
 	public void setInnerStatus(int innerStatus) {
 		this.innerStatus = innerStatus;
+	}
+	
+	public int getInnerStatus() {
+		return innerStatus;
 	}
 }

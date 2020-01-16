@@ -1,21 +1,32 @@
 package com.schwarte.TuringChain;
 
+import java.util.LinkedList;
+
 public class TuringTable {
+
+	private static TuringTable instance = null;
+	private LinkedList<TuringTableRow> tt = new LinkedList<TuringTableRow>();
 	
-	private static int rowcount = 0;
+	private TuringTable() {
+		super();
+	}
 	
-	private TuringTableRow[] tt = new TuringTableRow[1000];
+	public static TuringTable getInstance() {
+		if (instance == null) {
+			instance = new TuringTable();
+		}
+		return instance; 
+	}
 
 	public void addRow(TuringTableRow ttr) {
-		tt[rowcount] = ttr;
-		++rowcount;
+		this.tt.add(ttr);
 	}
 	
 	public TuringTableRow getRow(int row) {
-		return tt[row];
+		return tt.get(row);
 	}
 	
-	public int getRowcount() {
-		return rowcount;
+	public LinkedList<TuringTableRow> getTable() {
+		return tt;
 	}
 }

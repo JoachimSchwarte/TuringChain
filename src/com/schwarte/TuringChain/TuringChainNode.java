@@ -16,13 +16,14 @@ public class TuringChainNode {
 	public static TuringChainNode getNode(int i) {
 		return nodeList.get(i);
 	}
-	
-	public TuringAction activateNode(int i, int innerStatus, TuringTable tt) {
-		int ttLength = tt.getRowcount();
-		for (int j=0; j<ttLength; ++j) {
+
+	public static TuringAction activateNode(int i) {
+		int innerStatus = TuringMachine.getInstance().getInnerStatus();
+		TuringTable tt = TuringTable.getInstance();
+		for (int j=0; j<tt.getTable().size(); ++j) {
 			if ((tt.getRow(j).getPreInnerStatus() == innerStatus) &&
-					(tt.getRow(j).getPreCellContent() == cellContent)) {
-				cellContent = tt.getRow(j).getPostCellContent();
+					(tt.getRow(j).getPreCellContent() == TuringChainNode.getNode(i).getCellContent())) {
+				TuringChainNode.getNode(i).setCellContent(tt.getRow(j).getPostCellContent());
 				TuringMachine.getInstance().setInnerStatus(tt.getRow(j).getPostInnerStatus());
 				return tt.getRow(j).getNextAction();
 			}			
@@ -32,5 +33,9 @@ public class TuringChainNode {
 
 	public int getCellContent() {
 		return cellContent;
+	}
+	
+	public void setCellContent(int cellContent) {
+		this.cellContent = cellContent;
 	}
 }
